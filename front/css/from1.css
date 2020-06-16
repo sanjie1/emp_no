@@ -1,0 +1,10 @@
+.name{
+    width: 500px;
+    height:600px;
+    /*background-color:red;*/
+    margin-bottom: 3rem;
+}
+.table{
+    font-size: 0.1rem;
+    background-color: rgba(0, 0, 0, 0);
+}

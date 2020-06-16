@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+{#    <script src="{% static 'echarts.min.js' %}"></script>#}
+{#    <script src="{% static 'ecStat.min.js' %}"></script>#}
+{#    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>#}
+{#<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>#}
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+{#       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>#}
+{#       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>#}
+
+     
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 800px;height:600px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        var data = {{ dict }};
+        console.log(data)
+
+// See https://github.com/ecomfe/echarts-stat
+var myRegression = ecStat.regression('exponential', data);
+
+myRegression.points.sort(function(a, b) {
+    return a[0] - b[0];
+});
+
+option = {
+    title: {
+        text: '1981 - 1998 gross domestic product GDP (trillion yuan)',
+        subtext: 'By ecStat.regression',
+        sublink: 'https://github.com/ecomfe/echarts-stat',
+        left: 'center'
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross'
+        }
+    },
+    xAxis: {
+        type: 'value',
+        splitLine: {
+            lineStyle: {
+                type: 'dashed'
+            }
+        },
+        splitNumber: 20
+    },
+    yAxis: {
+        type: 'value',
+        splitLine: {
+            lineStyle: {
+                type: 'dashed'
+            }
+        }
+    },
+    series: [{
+        name: 'scatter',
+        type: 'scatter',
+        emphasis: {
+            label: {
+                show: true,
+                position: 'left',
+                color: 'blue',
+                fontSize: 16
+            }
+        },
+        data: data
+    }, {
+        name: 'line',
+        type: 'line',
+        showSymbol: false,
+        smooth: true,
+        data: myRegression.points,
+        markPoint: {
+            itemStyle: {
+                color: 'transparent'
+            },
+            label: {
+                show: true,
+                position: 'left',
+                formatter: myRegression.expression,
+                color: '#333',
+                fontSize: 14
+            },
+            data: [{
+                coord: myRegression.points[myRegression.points.length - 1]
+            }]
+        }
+    }]
+};
+
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

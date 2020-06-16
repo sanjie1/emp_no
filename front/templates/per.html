@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>per图</title>
+
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+
+
+     
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 800px;height:600px;"></div>
+    <table style="table-layout: fixed;" border="1" width="100%" cellspacing="0" cellpadding="2" class="table">
+ <tr>
+  <th align="left">消费项目....</th>
+  <th align="right">1月</th>
+  <th align="right">2月</th>
+     <th align="right">3月</th>
+  <th align="right">4月</th>
+     <th align="right">5月</th>
+ </tr>
+ <tr>
+  <td align="left">衣服</td>
+  <td align="right">$241.10</td>
+  <td align="right">$50.20</td>
+ </tr>
+ <tr>
+  <td align="left">化妆品</td>
+  <td align="right">$30.00</td>
+  <td align="right">$44.45</td>
+     <td align="right">$30.00</td>
+  <td align="right">$44.45</td>
+     <td align="right">$30.00</td>
+
+ </tr>
+ <tr>
+  <td align="left">食物</td>
+  <td align="right">$730.40</td>
+  <td align="right">$650.00</td>
+     <td align="right">$30.00</td>
+  <td align="right">$44.45</td>
+     <td align="right">$30.00</td>
+
+ </tr>
+ <tr>
+  <th align="left">总计</th>
+  <th align="right">$1001.50</th>
+  <th align="right">$744.65</th>
+     <td align="right">$30.00</td>
+  <td align="right">$44.45</td>
+     <td align="right">$30.00</td>
+ </tr>
+</table>
+    <script type="text/javascript">
+
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        /*var kv = new Array();//声明一个新的字典
+        {#kv = {{ data|safe}};//取出后台传递的数据，此处添加safe过滤避免警告#}
+        var test = new Array();//声明一个新的字典用于存放数据
+        for (var logKey in kv) {
+            //将对应键值对取出存入test，logKey 为该字典的键
+            test.push({value: kv[logKey], name: logKey});
+        }
+        console.log(test)*/
+        console.log({{ data|safe }})
+
+option = {
+    title: {
+        text: '部门工资统计',
+        subtext: '来自employees',
+        left: 'center'
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b} : {c} ({d}%)'
+    },
+    toolbox: { //可视化的工具箱
+                show: true,
+                feature: {
+                    dataView: { //数据视图
+                        show: true
+                    },
+                    restore: { //重置
+                        show: true
+                    },
+                    dataZoom: { //数据缩放视图
+                        show: true
+                    },
+                    saveAsImage: {//保存图片
+                        show: true
+                    },
+                    magicType: {//动态类型切换
+                        type: ['per', 'line']
+                    }
+                }
+            },//工具
+   /* dataZoom:[
+        {
+        type: 'inside'
+    }, {
+        type: 'slider'
+    }
+    ],//缩放*/
+    legend: {
+        orient: 'vertical',
+        left: 'left',
+        {#data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']#}
+          normal: {
+                    position: 'inner',
+                    show:false,
+                }
+    },
+    series: [
+        {
+             roseType: 'area',
+            name: '访问来源',
+            type: 'pie',
+            radius: '55%',
+            center: ['70%', '50%'],
+            data:{{ data|safe }},
+
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+
+</body>
+</html>
