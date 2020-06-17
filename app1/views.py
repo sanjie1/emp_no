@@ -57,3 +57,24 @@ def per(request):
 
     return render(request,'per.html',{'data': test})
 
+def line(request):
+    dict = {}
+    dict['list'] = []
+    salaries = Salaries.objects.values('emp_no').annotate(avg=Avg('salary'))[:12]
+
+    emp_no = list(Salaries.objects.values_list('emp_no').annotate())
+    for i in salaries:
+        # print([i["emp_no"]])
+        dict['list'].append( i["avg"])
+
+    for x in dict['list']:
+        print(x)
+    print("_________________________")
+    # print(dict['list'][-5:])
+    # dict['list'].remove(dict['list'][0][0])
+
+    context = {
+        'dict': dict['list']
+    }
+
+    return render(request, 'line.html', context=context)

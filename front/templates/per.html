@@ -3,61 +3,129 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>per图</title>
+    <style>
+        a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    list-style: none;
+    text-decoration: none;
+}
+    </style>
+        <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
 
+    <link rel="stylesheet" href="{% static 'css/per.css' %}"><!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js" rel="external nofollow" ></script>
+<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
 
 
-     
 </head>
 <body>
+<header class="header">
+    <div class="nav">
+    <ul>
+        <li><a href="/">首页</a></li>
+        <li><a href="/">xx图</a></li>
+        <li><a href="/">xx图</a></li>
+    </ul>
+    </div>
+</header>
+
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    <div id="main" style="width: 800px;height:600px;"></div>
-    <table style="table-layout: fixed;" border="1" width="100%" cellspacing="0" cellpadding="2" class="table">
+    <div id="main" style="width: 100%;height:800px;padding-top: 50px;" ></div>
+<div class="table-responsive" style="width:90%">
+    <table class="table table-bordered" style="table-layout: fixed;" border="1" width="100%" cellspacing="0" cellpadding="2" class="table">
  <tr>
-  <th align="left">消费项目....</th>
-  <th align="right">1月</th>
-  <th align="right">2月</th>
-     <th align="right">3月</th>
-  <th align="right">4月</th>
-     <th align="right">5月</th>
+  <th>消费项目</th>
+  <th >1月</th>
+  <th >2月</th>
+     <th >3月</th>
+  <th>4月</th>
+     <th >5月</th>
+     <th >6月</th>
+  <th >7月</th>
+     <th >8月</th>
+  <th >9月</th>
+     <th >10月</th>
+     <th >11月</th>
+  <th>12月</th>
  </tr>
+
  <tr>
-  <td align="left">衣服</td>
-  <td align="right">$241.10</td>
-  <td align="right">$50.20</td>
- </tr>
- <tr>
-  <td align="left">化妆品</td>
-  <td align="right">$30.00</td>
-  <td align="right">$44.45</td>
-     <td align="right">$30.00</td>
-  <td align="right">$44.45</td>
-     <td align="right">$30.00</td>
+  <td align="center">衣服</td>
+  <td align="center">$241.10</td>
+  <td align="center">$50.20</td>
+      <td align="center">$30.00</td>
+  <td align="center">$44.45</td>
+     <td align="center">$30.00</td>
+     <td align="center">$241.10</td>
+  <td align="center">$50.20</td>
+      <td align="center">$30.00</td>
+  <td align="center">$44.45</td>
+     <td align="center">$30.00</td>
+     <td align="center">$241.10</td>
+  <td align="center">$50.20</td>
 
  </tr>
  <tr>
-  <td align="left">食物</td>
-  <td align="right">$730.40</td>
-  <td align="right">$650.00</td>
-     <td align="right">$30.00</td>
-  <td align="right">$44.45</td>
-     <td align="right">$30.00</td>
+  <td align="center">化妆品</td>
+  <<td align="center">$241.10</td>
+  <td align="center">$50.20</td>
+      <td align="center">$30.00</td>
+  <td align="center">$44.45</td>
+     <td align="center">$30.00</td>
+     <td align="center">$241.10</td>
+  <td align="center">$50.20</td>
+      <td align="center">$30.00</td>
+  <td align="center">$44.45</td>
+     <td align="center">$30.00</td>
+     <td align="center">$241.10</td>
+  <td align="center">$50.20</td>
+ </tr>
+ <tr>
+  <td align="center">食物</td>
+  <td align="center">$241.10</td>
+  <td align="center">$50.20</td>
+      <td align="center">$30.00</td>
+  <td align="center">$44.45</td>
+     <td align="center">$30.00</td>
+     <td align="center">$241.10</td>
+  <td align="center">$50.20</td>
+      <td align="center">$30.00</td>
+  <td align="center">$44.45</td>
+     <td align="center">$30.00</td><td align="center">$241.10</td>
+  <td align="center">$50.20</td>
+
 
  </tr>
  <tr>
-  <th align="left">总计</th>
-  <th align="right">$1001.50</th>
-  <th align="right">$744.65</th>
-     <td align="right">$30.00</td>
-  <td align="right">$44.45</td>
-     <td align="right">$30.00</td>
+  <th >总计</th>
+  <td align="center">$241.10</td>
+  <td align="center">$50.20</td>
+      <td align="center">$30.00</td>
+  <td align="center">$44.45</td>
+     <td align="center">$30.00</td>
+     <td align="center">$241.10</td>
+  <td align="center">$50.20</td>
+      <td align="center">$30.00</td>
+  <td align="center">$44.45</td>
+     <td align="center">$30.00</td>
+     <td align="center">$241.10</td>
+  <td align="center">$50.20</td>
+
+
  </tr>
 </table>
+    </div>
     <script type="text/javascript">
+
 
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
@@ -96,9 +164,9 @@ option = {
                     saveAsImage: {//保存图片
                         show: true
                     },
-                    magicType: {//动态类型切换
+                   /* magicType: {//动态类型切换
                         type: ['per', 'line']
-                    }
+                    }*/
                 }
             },//工具
    /* dataZoom:[
@@ -122,8 +190,8 @@ option = {
              roseType: 'area',
             name: '访问来源',
             type: 'pie',
-            radius: '55%',
-            center: ['70%', '50%'],
+            radius: '70%',
+            center: ['50%', '50%'],
             data:{{ data|safe }},
 
             emphasis: {
@@ -138,6 +206,12 @@ option = {
 };
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
+       setTimeout(function (){
+	    window.onresize = function () {
+	    	myChart.resize();
+	    }
+	},100)
+
     </script>
 
 </body>
