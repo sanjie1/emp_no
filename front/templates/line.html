@@ -31,9 +31,9 @@
 <header class="header">
     <div class="nav">
     <ul>
-        <li><a href="/">首页</a></li>
-        <li><a href="/">xx图</a></li>
-        <li><a href="/">xx图</a></li>
+        <li><a href="#">首页</a></li>
+        <li><a href="{% url 'per' %}">饼图</a></li>
+        <li><a href="{% url 'line' %}">柱形图</a></li>
     </ul>
     </div>
 </header>
@@ -60,66 +60,33 @@
 
  <tr>
   <td align="center">衣服</td>
-  <td align="center">241.10</td>
-  <td align="center">50.200</td>
-      <td align="center">30.000</td>
-  <td align="center">4004.45</td>
-     <td align="center">0030.00</td>
-     <td align="center">00241.10</td>
-  <td align="center">0050.20</td>
-      <td align="center">0030.00</td>
-  <td align="center">0044.45</td>
-     <td align="center">1000.00</td>
-     <td align="center">00241.10</td>
-  <td align="center">0000.20</td>
+     {% for d in dict %}
+     <td align="center">{{ d }}</td>
+     {% endfor %}
+
+
+
 
  </tr>
  <tr>
-  <td align="center">化妆品</td>
-  <<td align="center">241.10</td>
-  <td align="center">50.200</td>
-      <td align="center">30.000</td>
-  <td align="center">4004.45</td>
-     <td align="center">0030.00</td>
-     <td align="center">00241.10</td>
-  <td align="center">0050.20</td>
-      <td align="center">0030.00</td>
-  <td align="center">0044.45</td>
-     <td align="center">1000.00</td>
-     <td align="center">00241.10</td>
-  <td align="center">0000.20</td>
+ <td align="center">购物</td>
+  {% for d in dict %}
+     <td align="center">{{ d }}</td>
+     {% endfor %}
  </tr>
  <tr>
   <td align="center">食物</td>
-  <td align="center">241.10</td>
-  <td align="center">50.200</td>
-      <td align="center">30.000</td>
-  <td align="center">4004.45</td>
-     <td align="center">0030.00</td>
-     <td align="center">00241.10</td>
-  <td align="center">0050.20</td>
-      <td align="center">0030.00</td>
-  <td align="center">0044.45</td>
-     <td align="center">1000.00</td>
-     <td align="center">00241.10</td>
-  <td align="center">0000.20</td>
+  {% for d in dict %}
+     <td align="center">{{ d }}</td>
+     {% endfor %}
 
 
  </tr>
  <tr>
   <th >总计</th>
-  <td align="center">241.10</td>
-  <td align="center">50.200</td>
-      <td align="center">30.000</td>
-  <td align="center">4004.45</td>
-     <td align="center">0030.00</td>
-     <td align="center">00241.10</td>
-  <td align="center">0050.20</td>
-      <td align="center">0030.00</td>
-  <td align="center">0044.45</td>
-     <td align="center">1000.00</td>
-     <td align="center">00241.10</td>
-  <td align="center">0000.20</td>
+  {% for d in dict %}
+     <td align="center">{{ d }}</td>
+     {% endfor %}
 
 
  </tr>
