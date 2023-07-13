@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "dependencies": {},
   "devDependencies": {
-    "echarts": "^4.8.0"
+    "echarts": "^5.4.2"
   }
 }
